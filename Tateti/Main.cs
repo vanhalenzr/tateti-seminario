@@ -7,10 +7,7 @@ namespace Tateti
 	{
 		public static void Main (string[] args)
 		{
-			Tablero tablero = new Tablero ();
-			Jugador jugador1 = new Jugador ("X");
-			Jugador jugador2 = new Jugador ("O");
-
+			//Inicializamos variables
 			int jugador_actual = 1;
 			int ficha_actual = 1;
 
@@ -20,16 +17,13 @@ namespace Tateti
 				if (ficha_actual == 0)
 				{
 					Console.Write("\nJugador {0}: Ingrese el nro de ficha a mover: ", jugador_actual, ficha_actual);
-					int ficha_actual = Convert.ToInt32(Console.ReadLine());
+					ficha_actual = Convert.ToInt32(Console.ReadLine());
 				}
 				Console.Write("\nJugador {0}: Ingrese posición para la ficha {1}: ", jugador_actual, ficha_actual);
 				int posicion_elegida = Convert.ToInt32(Console.ReadLine());
 
+				tablero.Jugar (jugador_actual, ficha_actual, posicion_elegida)
 
-				if (jugador_actual == 1)
-					tablero.posiciones[posicion_elegida] = jugador1.tipo_ficha;
-				else
-					tablero.posiciones[posicion_elegida] = jugador2.tipo_ficha;
 				jugador_actual++;
 
 				if (jugador_actual == 3)

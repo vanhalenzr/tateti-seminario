@@ -19,8 +19,6 @@ namespace Tateti
 					posiciones.Add(x," ");
 		}
 
-
-
 		public void PintarTablero ()
 		{
 			Console.Clear();
