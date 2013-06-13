@@ -7,12 +7,9 @@ namespace Tateti
 	{
 		public static void Main (string[] args)
 		{
-			//adsasdsadsadsadsad
 			Tablero tablero = new Tablero ();
 			Jugador jugador1 = new Jugador ("X");
 			Jugador jugador2 = new Jugador ("O");
-			//dasadssadsaddsasad
-			//asdsadadsdasads
 
 			int jugador_actual = 1;
 			int ficha_actual = 1;
