@@ -1,19 +1,19 @@
 using System;
 using System.Collections;
 
-namespace Tateti
+namespace tateti
 {
 	public class Jugador
 	{
-		//Declaración de la propiedad que almacena
-		//el tipo de ficha del jugador
+		//declaración de la propiedad que almacena el tipo de ficha
+		//del jugador 
 		public string tipo_ficha;
 		public Hashtable fichas;
 
 		public Jugador (string tipoficha)
 		{
-			tipo_ficha = tipoficha;
-			fichas = new Hashtable();
+			tipo_ficha=tipoficha;
+			fichas= new Hashtable();
 			fichas.Add(1,0);
 			fichas.Add(2,0);
 			fichas.Add(3,0);

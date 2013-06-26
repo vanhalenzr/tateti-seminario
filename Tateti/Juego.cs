@@ -1,29 +1,51 @@
 using System;
+using System.Collections;
 
-namespace Tateti
+
+namespace tateti
 {
 	public class Juego
 	{
-		public Tablero tablero;
+		//declaramos las propiedades
+		public Tablero tablero; 
 		public Jugador jugador1;
 		public Jugador jugador2;
 
 		public Juego ()
 		{
-			//declaramos e inicializamos los objetos
-			tablero = new Tablero();
-			jugador1 = new Jugador("X");
-			jugador2 = new Jugador("O");
+			//inicializamos los objetos asociados a las
+			//propiedades
+			tablero = new Tablero ();
+			jugador1= new Jugador("X");
+			jugador2= new Jugador("O");
 		}
+		public void PintarTablero ()
+		{
 
+			tablero.Limpiar();
+			foreach (DictionaryEntry ficha in jugador1.fichas) 
+			{
+				//grabamos la posicion de la ficha del jugador 
+				//en el tablero, sumandole el nro de ficha
+				tablero.posiciones[ficha.Value]=jugador1.tipo_ficha+ficha.Key.ToString();
+			}
+			foreach (DictionaryEntry ficha in jugador2.fichas) 
+			{
+				//grabamos la posicion de la ficha del jugador 
+				//en el tablero, sumandole el nro de ficha
+				tablero.posiciones[ficha.Value]=jugador2.tipo_ficha+ficha.Key.ToString();
+			}
+			tablero.PintarTablero();
+		
+		}
 		public void Jugar (int jugador, int ficha, int posicion)
 		{
-			if (jugador == 1)
-					tablero.posiciones[posicion] = jugador1.tipo_ficha;
-				else
-					tablero.posiciones[posicion] = jugador2.tipo_ficha;
-		}
+			if (jugador == 1) 
+				jugador1.fichas[ficha]=posicion;
+			else
+				jugador2.fichas[ficha]=posicion;
 
+		}
 	}
 }
 
