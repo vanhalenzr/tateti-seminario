@@ -19,6 +19,21 @@ namespace tateti
 			jugador1= new Jugador("X");
 			jugador2= new Jugador("O");
 		}
+
+		public int SeleccionarFicha (int jugador)
+		{
+			Console.Write("Jugador {0}: ingrese el nro de ficha a mover:",jugador);
+			int ficha_a_mover= Convert.ToInt32(Console.ReadLine());
+			return ficha_a_mover;
+		}
+
+		public int SeleccionarPosicion (int jugador, int ficha)
+		{
+			Console.Write("Jugador {0}: ingrese posición para la ficha {1}:",jugador,ficha);
+			int posicion_elegida = Convert.ToInt32(Console.ReadLine());
+			return posicion_elegida;
+		}
+
 		public void PintarTablero ()
 		{
 
