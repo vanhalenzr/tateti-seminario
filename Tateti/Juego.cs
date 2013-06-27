@@ -22,15 +22,65 @@ namespace tateti
 
 		public int SeleccionarFicha (int jugador)
 		{
-			Console.Write("Jugador {0}: ingrese el nro de ficha a mover:",jugador);
-			int ficha_a_mover= Convert.ToInt32(Console.ReadLine());
+			int ficha_a_mover = 0;
+
+			do
+			{
+				Console.Write("Jugador {0}: ingrese el nro de ficha a mover:",jugador);
+				try
+				{
+					ficha_a_mover= Convert.ToInt32(Console.ReadLine());
+				}
+				catch
+				{
+					ficha_a_mover = 0;
+					Console.WriteLine("\n****************************************************");
+					Console.WriteLine("| Error, se esperaba que ingrese un valor numérico |");
+					Console.WriteLine("****************************************************");
+				}
+
+				if (ficha_a_mover < 1 || ficha_a_mover > 3)
+				{
+					Console.WriteLine("\n********************************************************************************");
+					Console.WriteLine("Usted esta jugando en un tablero imaginario, deje de usar estupefacientes y consiga ayuda psiquiátrica");
+					Console.WriteLine("********************************************************************************");
+					Console.ReadLine();
+				}
+
+			}while(ficha_a_mover < 1 || ficha_a_mover > 9);
+
 			return ficha_a_mover;
 		}
 
 		public int SeleccionarPosicion (int jugador, int ficha)
 		{
-			Console.Write("Jugador {0}: ingrese posición para la ficha {1}:",jugador,ficha);
-			int posicion_elegida = Convert.ToInt32(Console.ReadLine());
+			int posicion_elegida = 0;
+
+			do
+			{
+				Console.Write ("Jugador {0}: ingrese posición para la ficha {1}:", jugador, ficha);
+				try
+				{
+					posicion_elegida = Convert.ToInt32 (Console.ReadLine ());
+				}
+				catch
+				{
+					posicion_elegida = 0;
+					Console.WriteLine("\n****************************************************");
+					Console.WriteLine("| Error, se esperaba que ingrese un valor numérico |");
+					Console.WriteLine("****************************************************");
+				}
+
+				if (posicion_elegida < 1 || posicion_elegida > 9)
+				{
+					Console.WriteLine("\n********************************************************************************");
+					Console.WriteLine("Usted esta jugando en un tablero imaginario, deje de usar estupefacientes y consiga ayuda psiquiátrica");
+					Console.WriteLine("********************************************************************************");
+					Console.ReadLine();
+				}
+
+			}while(posicion_elegida < 1 || posicion_elegida > 9);
+			
 			return posicion_elegida;
 		}
 
