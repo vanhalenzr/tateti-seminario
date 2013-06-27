@@ -24,6 +24,15 @@ namespace tateti
 				posiciones[x]="  ";
 		}
 
+		public bool ControlPosicionVacia (int posicion)
+		{
+			if (posiciones [posicion] == "  ")
+			{
+				return true;
+			}
+			return false;
+		}
+
 		public void PintarTablero ()
 		{
 			Console.Clear();
