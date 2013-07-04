@@ -88,9 +88,51 @@ namespace tateti
 					posicion_elegida = 0;
 				}
 
+				if (!ControlMovimientoValido(posicion_elegida,jugador,ficha))
+				{
+					Console.WriteLine("Error, movimiento no Válido");
+					Console.ReadLine();
+					posicion_elegida = 0;
+				}
+
 			}while(posicion_elegida < 1 || posicion_elegida > 9);
 			
 			return posicion_elegida;
+		}
+
+		public bool ControlMovimientoValido (int posicion_elegida, int jugador, int ficha)
+		{
+			int posicion_previa;
+			//Tomamos el valor de la posición donde estaba
+			//previamente la ficha
+			if (jugador == 1)
+				posicion_previa = (int)jugador1.fichas[ficha];
+			else
+				posicion_previa = (int)jugador2.fichas[ficha];
+			//Si posición previa es igual a cero, no existen
+			//movimientos no válidos
+			if (posicion_previa == 0)
+				return true;
+			if (posicion_previa == 1 && (posicion_elegida == 2 || posicion_elegida == 4 || posicion_elegida == 5))
+			    return true;
+			if (posicion_previa == 2 && (posicion_elegida == 1 || posicion_elegida == 3 || posicion_elegida == 5))
+			    return true;
+			if (posicion_previa == 3 && (posicion_elegida == 2 || posicion_elegida == 5 || posicion_elegida == 6))
+			    return true;
+			if (posicion_previa == 4 && (posicion_elegida == 1 || posicion_elegida == 5 || posicion_elegida == 7))
+			    return true;
+			if (posicion_previa == 5 && (posicion_elegida != 5))
+			    return true;
+			if (posicion_previa == 6 && (posicion_elegida == 3 || posicion_elegida == 5 || posicion_elegida == 9))
+			    return true;
+			if (posicion_previa == 7 && (posicion_elegida == 4 || posicion_elegida == 5 || posicion_elegida == 8))
+			    return true;
+			if (posicion_previa == 8 && (posicion_elegida == 7 || posicion_elegida == 5 || posicion_elegida == 9))
+			    return true;
+			if (posicion_previa == 9 && (posicion_elegida == 8 || posicion_elegida == 5 || posicion_elegida == 6))
+			    return true;
+
+			return false;
 		}
 
 		public void PintarTablero ()
